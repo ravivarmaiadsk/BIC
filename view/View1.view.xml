@@ -1,0 +1,327 @@
+<mvc:View controllerName="autodesk.Payload.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:m="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" class="sapUiSizeCompact" xmlns:c="dispute1.dispute1.control"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:u="sap.ui.unified" xmlns="sap.ui.table">
+	<m:ScrollContainer id="scrollcontainer" vertical="true">
+		<f:SimpleForm id="SimpleFormChange480_12120" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="5" labelSpanM="5"
+			labelSpanS="5" adjustLabelSpan="true" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="1"
+			singleContainerFullSize="false">
+			<f:content>
+				<core:Title text=""/>
+				<m:Label text="Order State"/>
+				<m:ComboBox id="ordertype" required="true" change="onOrderTypeChange">
+					<m:layoutData>
+						<l:GridData span="XL6 L5 M4 S10" id="vcon1"/>
+					</m:layoutData>
+					<core:Item key="CHARGEBACK" text="CHARGEBACK"/>
+					<core:Item key="REFUND" text="REFUND"/>
+				</m:ComboBox>
+				<m:Label text="Oxygen Id"/>
+				<m:Input id="vContact2" maxLength="20">
+					<m:layoutData>
+						<l:GridData span="XL6 L5 M4 S10" id="vcon2"/>
+					</m:layoutData>
+				</m:Input>
+				<m:Label text="Purchaser Email Id"/>
+				<m:Input id="vContact" maxLength="20">
+					<m:layoutData>
+						<l:GridData span="XL6 L5 M4 S10" id="vcon"/>
+					</m:layoutData>
+				</m:Input>
+				<core:Title text=""/>
+				<m:Label text="Purchaser CSN"/>
+				<m:Input id="vContact4" maxLength="20">
+					<m:layoutData>
+						<l:GridData span="XL6 L5 M4 S10" id="vcon4"/>
+					</m:layoutData>
+				</m:Input>
+				<m:Label text="Country"/>
+				<m:Input id="vContact5" maxLength="20">
+					<m:layoutData>
+						<l:GridData span="XL6 L5 M4 S10" id="vcon5"/>
+					</m:layoutData>
+				</m:Input>
+				<m:Label text="Currency"/>
+				<m:Input id="vContact6" maxLength="20">
+					<m:layoutData>
+						<l:GridData span="XL6 L5 M4 S10" id="vcon6"/>
+					</m:layoutData>
+				</m:Input>
+				<core:Title text=""/>
+				<m:Label text="Language"/>
+				<m:Input id="vContact7" maxLength="20">
+					<m:layoutData>
+						<l:GridData span="XL6 L5 M4 S10" id="vcon7"/>
+					</m:layoutData>
+				</m:Input>
+				<m:Label text="Payment Processor"/>
+				<m:Input id="vContact8" maxLength="20">
+					<m:layoutData>
+						<l:GridData span="XL6 L5 M4 S10" id="vcon8"/>
+					</m:layoutData>
+				</m:Input>
+			</f:content>
+		</f:SimpleForm>
+		<Table id="lineitemtable" rows="{/items}" selectionMode="MultiToggle" visibleRowCount="10" paste="onPaste" ariaLabelledBy="title">
+			<extension>
+				<m:OverflowToolbar style="Clear">
+					<m:Title id="title" text="Line Items"/>
+					<m:ToolbarSpacer/>
+					<m:Button icon="sap-icon://add" tooltip="Add Row" press="onAddRow"/>
+					<m:Button icon="sap-icon://delete" tooltip="Delete" press="onDelete"/>
+					<m:Button icon="sap-icon://copy" tooltip="Copy" press="onCopy"/>
+				</m:OverflowToolbar>
+			</extension>
+			<columns>
+				<Column width="11rem">
+					<m:Label text="Quantity"/>
+					<template>
+						<m:Input value="{Quantity}"/>
+					</template>
+				</Column>
+				<Column width="11rem">
+					<m:Label text="Partner Subs Id"/>
+					<template>
+						<m:Input value="{PartSubId}"/>
+					</template>
+				</Column>
+				<Column width="16rem" hAlign="End" id="settledatestart">
+					<m:Label text="Settlement Start Date for Deadline"/>
+					<template>
+						<m:DatePicker value="{ path: 'SettleDateStart', type: 'sap.ui.model.type.Date', formatOptions: {source: {pattern: 'timestamp'}} }"/>
+					</template>
+				</Column>
+				<Column width="16rem" hAlign="End" id="settledateend">
+					<m:Label text="Settlement End Date for Deadline"/>
+					<template>
+						<m:DatePicker value="{ path: 'SettleDateEnd', type: 'sap.ui.model.type.Date', formatOptions: {source: {pattern: 'timestamp'}} }"/>
+					</template>
+				</Column>
+				<Column width="9rem">
+					<m:Label text="Offering Id"/>
+					<template>
+						<m:Input value="{OfferingId}"/>
+					</template>
+				</Column>
+				<Column width="9rem">
+					<m:Label text="Licence Usage"/>
+					<template>
+						<m:Input value="{LicUsage}"/>
+					</template>
+				</Column>
+				<Column width="12rem">
+					<m:Label text="Connectivity"/>
+					<template>
+						<m:Input value="{Connectivity}"/>
+					</template>
+				</Column>
+				<Column width="9rem">
+					<m:Label text="Connectivity Interval"/>
+					<template>
+						<m:Input value="{ConnInterval}"/>
+					</template>
+				</Column>
+				<Column width="9rem">
+					<m:Label text="Subscription Level"/>
+					<template>
+						<m:Input value="{SubsLevel}"/>
+					</template>
+				</Column>
+				<Column width="7rem">
+					<m:Label text="Billing Behavior"/>
+					<template>
+						<m:Input value="{BillBehavior}"/>
+					</template>
+				</Column>
+				<Column width="12rem">
+					<m:Label text="Contract Term"/>
+					<template>
+						<m:Input value="{ConTerm}"/>
+					</template>
+				</Column>
+				<Column width="12rem">
+					<m:Label text="Billing Type"/>
+					<template>
+						<m:Input value="{BillType}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="Billing Frequency"/>
+					<template>
+						<m:Input value="{BillFreq}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="Extended Price"/>
+					<template>
+						<m:Input value="{ExtPrice}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="Volume Discount"/>
+					<template>
+						<m:Input value="{VolDiscount}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="Manual Discount"/>
+					<template>
+						<m:Input value="{ManDiscount}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="Deal Discount (DDA /G9)"/>
+					<template>
+						<m:Input value="{DealDiscount}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="End User First Name"/>
+					<template>
+						<m:Input value="{EUFirstname}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="End User Last Name"/>
+					<template>
+						<m:Input value="{EULastname}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="End User Email"/>
+					<template>
+						<m:Input value="{EUEmail}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="End User Company Id"/>
+					<template>
+						<m:Input value="{EUCompId}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="End User Adress Line 1"/>
+					<template>
+						<m:Input value="{EUAddL1}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="End User Adress Line 2"/>
+					<template>
+						<m:Input value="{EUAddL2}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="End User City"/>
+					<template>
+						<m:Input value="{EUCity}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="End User State"/>
+					<template>
+						<m:Input value="{EUState}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="End User Country"/>
+					<template>
+						<m:Input value="{EUCountry}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="End User Postal Code"/>
+					<template>
+						<m:Input value="{EUPostCode}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="End User Phone"/>
+					<template>
+						<m:Input value="{EUPhone}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="End user Account Csn"/>
+					<template>
+						<m:Input value="{EUAccCsn}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="Agency First Name"/>
+					<template>
+						<m:Input value="{AGFirstname}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="Agency Last Name"/>
+					<template>
+						<m:Input value="{AGLastname}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="Agency Email"/>
+					<template>
+						<m:Input value="{AGEmail}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="Agency Company Id"/>
+					<template>
+						<m:Input value="{AGCompId}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="Agency Adress Line 1"/>
+					<template>
+						<m:Input value="{AGAddL1}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="Agency Adress Line 2"/>
+					<template>
+						<m:Input value="{AGAddL2}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="Agency City"/>
+					<template>
+						<m:Input value="{AGCity}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="Agency State"/>
+					<template>
+						<m:Input value="{AGState}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="Agency Country"/>
+					<template>
+						<m:Input value="{AGCountry}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="Agency Postal Code"/>
+					<template>
+						<m:Input value="{AGPostCode}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="Agency Phone"/>
+					<template>
+						<m:Input value="{AGPhone}"/>
+					</template>
+				</Column>
+				<Column width="12rem" hAlign="Center">
+					<m:Label text="Agency Account Csn"/>
+					<template>
+						<m:Input value="{AGAccCsn}"/>
+					</template>
+				</Column>
+			</columns>
+		</Table>
+		<m:FlexBox height="100px" alignItems="Start" justifyContent="End">
+			<m:Button text="Submit" width="150px" class="sapUiSmallMargin" type="Emphasized" press="onSubmit"/>
+		</m:FlexBox>
+	</m:ScrollContainer>
+</mvc:View>
