@@ -101,6 +101,7 @@ sap.ui.define([
 				oLineItem.offer = offer;
 				oLineItem.price = price;
 				aLineItems.push(oLineItem);
+
 			}
 
 			// Filling header Data 
@@ -124,7 +125,28 @@ sap.ui.define([
 			data.payment = payment;
 			data.lineItems = aLineItems;
 			console.log(data);
+			var ajaxData = {
+				"items": [{
+					"Detail": data,
+					"DetailType": "Test",
+					"Source": "com.inv.order"
+				}]
+			};
+			jQuery.ajax({
+				type: "POST",
+				//	Access-Control-Allow-Headers:'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+				contentType: "application/json",
+				url: "//hdiyj6ezwk.execute-api.us-east-1.amazonaws.com/dev/",
+				dataType: "json",
+				"Access-Control-Allow-Origin": "*",
+				async: false,
+				data: ajaxData,
+				success: function (data1, textStatus, jqXHR) {
+					// oModel.setData({modelData : data}); 
+					alert("success to post");
+				}
 
+			});
 		},
 
 		onAddRow: function () {
